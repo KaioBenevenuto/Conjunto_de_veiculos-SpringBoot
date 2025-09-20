@@ -1,0 +1,39 @@
+Enunciado - API REST Veículos
+Você deve desenvolver uma API RESTful para gerenciar veículos de uma frota. A aplicação
+deverá permitir operações CRUD (Create, Read, Update, Delete) e também a pesquisa de
+veículos específicos pela placa ou pela marca. Os dados devem ser persistidos em um banco de
+dados H2 (em memória), que será acessível via console web.
+
+
+Requisitos da Aplicação
+1. Entidade: Veículo
+• id (UUID, gerado automaticamente)
+• placa (string, única)
+• marca (string)
+• modelo (string)
+• ano (inteiro)
+
+
+2. Banco de Dados
+• O sistema deve utilizar o H2 Database em memória.
+• O console do H2 deve estar habilitado e acessível em /h2-console.
+• O schema/tabela deve ser criado automaticamente pelo framework utilizado (ex.:JPA/Hibernate).
+
+
+Endpoints da API
+POST /veiculos - Cria um novo veículo no banco H2.
+GET /veiculos - Lista todos os veículos cadastrados.
+GET /veiculos/{id} - Busca um veículo específico por ID (UUID).
+PUT /veiculos/{id} - Atualiza os dados de um veículo existente.
+DELETE /veiculos/{id} - Remove um veículo do sistema.
+GET /veiculos/placa?valor={placa} - Retorna os dados do veículo pela placa informada.
+GET /veiculos/marca?valor={marca} - Retorna todos os veículos de determinada marca.
+
+
+Critérios de Aceitação
+• O campo id deve ser um UUID gerado automaticamente pelo sistema.
+• Não deve ser permitido cadastrar dois veículos com a mesma placa.
+• Caso um veículo não seja encontrado, a API deve retornar um erro 404 - Not Found.
+• As respostas devem ser em JSON.
+• O banco H2 deve conter todos os registros cadastrados enquanto a aplicação estiver em
+execução.
